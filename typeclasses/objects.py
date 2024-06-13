@@ -172,4 +172,5 @@ class Object(ObjectParent, DefaultObject):
 
     """
 
-    pass
+    def at_object_creation(self):
+        self.db.is_not_seen = False

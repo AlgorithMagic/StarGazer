@@ -32,17 +32,11 @@ from evennia.settings_default import *
 ######################################################################
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "Star Gazer"
-SERVER_HOSTNAME = "localhost"
-# Place to put log files, how often to rotate the log and how big each log file
-# may become before rotating.
-LOG_DIR = os.path.join(GAME_DIR, "server", "logs")
-SERVER_LOG_FILE = os.path.join(LOG_DIR, "server.log")
-SERVER_LOG_DAY_ROTATION = 7
-SERVER_LOG_MAX_SIZE = 1000000
-PORTAL_LOG_FILE = os.path.join(LOG_DIR, "portal.log")
-PORTAL_LOG_DAY_ROTATION = 7
-PORTAL_LOG_MAX_SIZE = 1000000
+SERVERNAME="Star Gazer"
+SERVER_HOSTNAME="localhost"
+# Custom Configs
+TIME_ZONE="Etc/GMT-7"
+USE_TZ=True
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.

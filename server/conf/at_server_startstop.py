@@ -16,7 +16,7 @@ at_server_cold_start()
 at_server_cold_stop()
 
 """
-
+from evennia.server.sessionhandler import SESSIONS
 
 def at_server_init():
     """
@@ -52,7 +52,11 @@ def at_server_reload_stop():
     """
     This is called only time the server stops before a reload.
     """
-    pass
+    # Message to be sent to all logged-in characters
+    message = "Restarting StarGazer systems."
+    
+    # Announce to all connected sessions
+    SESSIONS.announce_all(message)
 
 
 def at_server_cold_start():

@@ -24,9 +24,10 @@ from django.conf import settings
 
 from evennia import utils
 
-CONNECTION_SCREEN = """
+CONNECTION_SCREEN = f"""
 |b==============================================================|n
- Welcome to |g{}|n, version {}!
+ Welcome to the |bStarGazer.|w Please login to resume journey.
+ 
 
  If you have an existing account, connect to it by typing:
       |wconnect <username> <password>|n
@@ -35,6 +36,4 @@ CONNECTION_SCREEN = """
 
  If you have spaces in your username, enclose it in quotes.
  Enter |whelp|n for more info. |wlook|n will re-show this screen.
-|b==============================================================|n""".format(
-    settings.SERVERNAME, utils.get_evennia_version("short")
-)
+|b==============================================================|n"""

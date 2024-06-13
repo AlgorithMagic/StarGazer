@@ -29,8 +29,14 @@ class Command(BaseCommand):
     #     - func(): Performs the actual work.
     #     - at_post_cmd(): Extra actions, often things done after
     #         every command, like prompts.
-    #
-    pass
+    
+    def msg(self, text=None, **kwargs):
+        """
+        Overloads the default msg method to include a color prefix.
+        """
+        if text is not None:
+            text = f"|035{text}"
+        super().msg(text=text, **kwargs)
 
 
 # -------------------------------------------------------------

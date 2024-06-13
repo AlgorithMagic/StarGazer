@@ -20,28 +20,28 @@ needed on the Evennia side.
 
 MSSPTable = {
     # Required fields
-    "NAME": "Mygame",  # usually the same as SERVERNAME
+    "NAME": "StarGazer",  # usually the same as SERVERNAME
     # Generic
     "CRAWL DELAY": "-1",  # limit how often crawler may update the listing. -1 for no limit
     "HOSTNAME": "",  # telnet hostname
     "PORT": ["4000"],  # telnet port - most important port should be *last* in list!
     "CODEBASE": "Evennia",
     "CONTACT": "",  # email for contacting the mud
-    "CREATED": "",  # year MUD was created
+    "CREATED": "2024",  # year MUD was created
     "ICON": "",  # url to icon 32x32 or larger; <32kb.
     "IP": "",  # current or new IP address
-    "LANGUAGE": "",  # name of language used, e.g. English
-    "LOCATION": "",  # full English name of server country
-    "MINIMUM AGE": "0",  # set to 0 if not applicable
+    "LANGUAGE": "English",  # name of language used, e.g. English
+    "LOCATION": "North America",  # full English name of server country
+    "MINIMUM AGE": "18",  # set to 0 if not applicable
     "WEBSITE": "",  # http:// address to your game website
     # Categorisation
     "FAMILY": "Evennia",
-    "GENRE": "None",  # Adult, Fantasy, Historical, Horror, Modern, None, or Science Fiction
+    "GENRE": "Science Fiction",  # Adult, Fantasy, Historical, Horror, Modern, None, or Science Fiction
     # Gameplay: Adventure, Educational, Hack and Slash, None,
     # Player versus Player, Player versus Environment,
     # Roleplaying, Simulation, Social or Strategy
-    "GAMEPLAY": "",
-    "STATUS": "Open Beta",  # Allowed: Alpha, Closed Beta, Open Beta, Live
+    "GAMEPLAY": "Adventure",
+    "STATUS": "Alpha",  # Allowed: Alpha, Closed Beta, Open Beta, Live
     "GAMESYSTEM": "Custom",  # D&D, d20 System, World of Darkness, etc. Use Custom if homebrew
     # Subgenre: LASG, Medieval Fantasy, World War II, Frankenstein,
     # Cyberpunk, Dragonlance, etc. Or None if not applicable.

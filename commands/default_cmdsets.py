@@ -15,7 +15,13 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 """
 
 from evennia import default_cmds
-
+from commands.get_stats import CmdStats
+from commands.get_resources import CmdResources
+from commands.weighted_probability import WeightedDice
+from commands.level_up import CmdLevelUp
+from commands.give_exp import CmdAdjustEXP
+from commands.resource_updown import CmdResourceUpDown
+from commands.check_tnl import CmdCheckTNL
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -34,7 +40,9 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-
+        commands = [CmdStats, CmdResources, CmdLevelUp, CmdCheckTNL, CmdResourceUpDown, CmdAdjustEXP]
+        for i in range(len(commands)):
+            self.add(commands[i])
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
     """
@@ -94,3 +102,6 @@ class SessionCmdSet(default_cmds.SessionCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+        commands = [WeightedDice]
+        for i in range(len(commands)):
+            self.add(commands[i])
