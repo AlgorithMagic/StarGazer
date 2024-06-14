@@ -63,7 +63,8 @@ class Character(ObjectParent, DefaultCharacter):
         self.db.stats = {
             "piloting" : 1,
             "fortitude" : 1,
-            "intelligence" : 1
+            "intelligence" : 1,
+            "luck" : 1
         }
         self.db.stat_points = 0
         self.db.level = 1

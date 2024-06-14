@@ -23,6 +23,7 @@ from commands.give_exp import CmdAdjustEXP
 from commands.resource_updown import CmdResourceUpDown
 from commands.check_tnl import CmdCheckTNL
 
+from commands.gamble import CmdGamble # TESTING
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
     The `CharacterCmdSet` contains general in-game commands like `look`,
@@ -40,7 +41,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
-        commands = [CmdStats, CmdResources, CmdLevelUp, CmdCheckTNL, CmdResourceUpDown, CmdAdjustEXP]
+        commands = [CmdStats, CmdResources, CmdLevelUp, CmdCheckTNL, CmdResourceUpDown, CmdAdjustEXP, CmdGamble]
         for i in range(len(commands)):
             self.add(commands[i])
 

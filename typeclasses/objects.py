@@ -12,7 +12,8 @@ inheritance.
 """
 
 from evennia.objects.objects import DefaultObject
-
+from collections import defaultdict
+from evennia.utils.utils import iter_to_str
 
 class ObjectParent:
     """
@@ -171,6 +172,42 @@ class Object(ObjectParent, DefaultObject):
                                  object speaks
 
     """
+    def get_display_things(self, looker, **kwargs):
+        """
+        Get the 'things' component of the object description. Called by `return_appearance`.
 
-    def at_object_creation(self):
-        self.db.is_not_seen = False
+        Args:
+            looker (DefaultObject): Object doing the looking.
+            **kwargs: Arbitrary data for use when overriding.
+        Returns:
+            str: The things display data.
+
+        """
+        # sort and handle same-named things
+        things = self.filter_visible(self.contents_get(content_type="object"), looker, **kwargs)
+
+        grouped_things = defaultdict(list)
+        for thing in things:
+            if not thing.tags.has("is_not_seen"): grouped_things[thing.get_display_name(looker, **kwargs)].append(thing)
+
+        thing_names = []
+        for thingname, thinglist in sorted(grouped_things.items()):
+            nthings = len(thinglist)
+            thing = thinglist[0]
+            singular, plural = thing.get_numbered_name(nthings, looker, key=thingname)
+            thing_names.append(singular if nthings == 1 else plural)
+        thing_names = iter_to_str(thing_names)
+        return f"|wYou see:|n {thing_names}" if thing_names else ""
+    
+    def get_display_desc(self, looker, **kwargs):
+        """
+        Get the 'desc' component of the object description. Called by `return_appearance`.
+
+        Args:
+            looker (DefaultObject): Object doing the looking.
+            **kwargs: Arbitrary data for use when overriding.
+        Returns:
+            str: The desc display string.
+
+        """
+        return self.db.desc or "The universe reveals nothing unique about this."
