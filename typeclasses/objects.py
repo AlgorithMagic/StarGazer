@@ -211,3 +211,4 @@ class Object(ObjectParent, DefaultObject):
 
         """
         return self.db.desc or "The universe reveals nothing unique about this."
+    
